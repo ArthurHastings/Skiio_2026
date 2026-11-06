@@ -1,0 +1,35 @@
+{% extends 'skiio/baza.html' %}
+{% load static %}
+
+{% block titlu %}Acasa - Skiio{% endblock %}
+
+{% block continut %}
+<h1>Skiio - Magazinul tau de schiuri</h1>
+<p>Bun venit pe Skiio! Aici gasesti informatii despre schi ca sport, tipurile de schiuri, un ghid practic pentru alegerea modelului potrivit si magazinul nostru online.</p>
+<img src="{% static 'skiio/imagini/schi_principal.jpg' %}" alt="Schiuri pe partie" class="imagine-sectiune">
+
+<section id="despre-sport">
+    <h2>1. Schiul ca sport de iarna</h2>
+    <p>Schiul alpin imbina tehnica de viraj, echilibrul si controlul vitezei pe partii amenajate sau pe zapada neatinsa.</p>
+</section>
+
+<section id="tipuri-schiuri">
+    <h2>2. Tipuri de schiuri</h2>
+    <p>Principalele categorii sunt schiurile de partie (Carving), All-Mountain, Freeride pentru zapada afanata si Freestyle pentru snowpark.</p>
+</section>
+
+<section id="ghid-alegere">
+    <h2>3. Cum iti alegi modelul potrivit</h2>
+    <p>Lungimea si rigiditatea schiului se aleg in functie de inaltime, greutate si nivelul tehnic (incepator, intermediar sau avansat).</p>
+</section>
+
+<section id="intretinere">
+    <h2>4. Intretinere si ceruire</h2>
+    <p>Ceruirea talpii si ascutirea canturilor la fiecare cateva zile de schi mentin alunecarea optima si siguranta pe portiunile inghetate.</p>
+</section>
+
+<section id="promotii">
+    <h2>5. Promotii curente</h2>
+    <p>Oferim reduceri de pana la 25% la pachetele complete de schiuri cu legaturi incluse.</p>
+</section>
+{% endblock %}

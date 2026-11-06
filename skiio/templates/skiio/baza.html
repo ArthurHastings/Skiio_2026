@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titlu %}Skiio - Magazin de schiuri{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'skiio/css/nav.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="meniu">
+                <li>
+                    <a href="{% url 'index' %}">Acasa</a>
+                    <ul class="submeniu">
+                        <li><a href="{% url 'index' %}#despre-sport">Schiul ca sport</a></li>
+                        <li><a href="{% url 'index' %}#tipuri-schiuri">Tipuri de schiuri</a></li>
+                        <li><a href="{% url 'index' %}#ghid-alegere">Ghid de alegere</a></li>
+                        <li><a href="{% url 'index' %}#intretinere">Intretinere schiuri</a></li>
+                        <li><a href="{% url 'index' %}#promotii">Promotii curente</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'despre' %}">Despre noi</a>
+                    <ul class="submeniu">
+                        <li><a href="{% url 'despre' %}#poveste">Povestea Skiio</a></li>
+                        <li><a href="{% url 'despre' %}#atelier">Atelierul nostru</a></li>
+                        <li><a href="{% url 'istoric' %}">Istoric</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'produse' %}">Produse</a></li>
+                <li><a href="{% url 'cos_virtual' %}">Cos virtual</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li>
+                    <a href="{% url 'info' %}">Server</a>
+                    <ul class="submeniu">
+                        <li><a href="{% url 'info' %}">Informatii server</a></li>
+                        <li><a href="{% url 'log' %}">Jurnal accesari</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block continut %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© {{ firma.an_infiintare }} - prezent {{ firma.nume }}. Toate drepturile rezervate.</p>
+        <p>Sediu: {{ firma.adresa }} | Telefon: {{ firma.telefon }} | Email: {{ firma.email }} | Program: {{ firma.program }}</p>
+        <p>IP utilizator: {{ ip_utilizator }}</p>
+    </footer>
+</body>
+</html>

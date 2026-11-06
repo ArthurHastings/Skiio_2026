@@ -1,0 +1,19 @@
+{% extends 'skiio/baza.html' %}
+{% load static %}
+
+{% block titlu %}Despre noi - Skiio{% endblock %}
+
+{% block continut %}
+<h1>Despre Skiio</h1>
+<img src="{% static 'skiio/imagini/echipa_skiio.jpg' %}" alt="Echipa Skiio" class="imagine-sectiune">
+
+<section id="poveste">
+    <h2>Povestea Skiio</h2>
+    <p>Am lansat Skiio pentru a ajuta schiorii din Romania să isi aleaga corect echipamentul in functie de stilul lor pe partie.</p>
+</section>
+
+<section id="atelier">
+    <h2>Atelierul nostru de service</h2>
+    <p>In sediul nostru din Brasov oferim servicii profesionale de montaj legaturi, ceruire la cald si reparatii de talpa.</p>
+</section>
+{% endblock %}
