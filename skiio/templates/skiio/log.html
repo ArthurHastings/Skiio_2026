@@ -1,0 +1,67 @@
+{% extends 'skiio/baza.html' %}
+{% block titlu %}Jurnal Accesari{% endblock %}
+
+{% block continut %}
+<h1>Jurnalul accesarilor</h1>
+
+<section>
+    <h2>Parametri</h2>
+    <p>Numar de parametri primiti: {{ nr_parametri }}</p>
+    {% if nume_parametri %}
+        <p>Numele parametrilor: {{ nume_parametri|join:", " }}</p>
+    {% else %}
+        <p>Nu a fost primit niciun parametru.</p>
+    {% endif %}
+</section>
+
+{% if afiseaza_nr_total %}
+<section>
+    <h2>Total accesari in sesiunea curenta</h2>
+    <p>De la pornirea serverului s-au inregistrat <strong>{{ nr_total_sesiune }}</strong> accesari.</p>
+</section>
+{% endif %}
+
+<section>
+    <h2>Accesari inregistrate</h2>
+
+    {% if coloane_tabel %}
+        <table>
+            <thead>
+                <tr>
+                    {% for col in coloane_tabel %}
+                        <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for rand in randuri_tabel %}
+                    <tr>
+                        {% for celula in rand %}
+                            <td>{{ celula }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% elif afiseaza_detalii_data %}
+        <ul>
+            {% for acc in accesari_afisate %}
+                <li>Data si ora accesarii #{{ acc.id }}: {{ acc.data }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <ul>
+            {% for acc in accesari_afisate %}
+                <li>{{ acc }} (<a href="{% url 'detalii_accesare' acc.id %}">Detalii</a>)</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if eroare %}
+        <p style="color: red; font-weight: bold;">{{ eroare }}</p>
+    {% endif %}
+
+    <p><strong>Pagina cea mai putin accesata:</strong> {{ pagina_min }}</p>
+    <p><strong>Pagina cea mai mult accesata:</strong> {{ pagina_max }}</p>
+</section>
+{% endblock %}

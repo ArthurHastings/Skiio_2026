@@ -1,0 +1,14 @@
+{% extends 'skiio/baza.html' %}
+{% block titlu %}Accesarea #{{ accesare.id }}{% endblock %}
+
+{% block continut %}
+<h1>Detalii pentru accesarea #{{ accesare.id }}</h1>
+<ul>
+    <li><strong>ID:</strong> {{ accesare.id }}</li>
+    <li><strong>IP Client:</strong> {{ accesare.ip_client }}</li>
+    <li><strong>URL complet:</strong> {{ accesare.string_url }}</li>
+    <li><strong>Pagina:</strong> {{ accesare.pagina }}</li>
+    <li><strong>Data:</strong> {{ accesare.data }}</li>
+    <li><strong>Parametri:</strong> {{ accesare.lista_parametri }}</li>
+</ul>
+{% endblock %}
