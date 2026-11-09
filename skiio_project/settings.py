@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'skiio',
 ]
 
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'skiio_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'skiio_db',
+        'USER': 'skiio_user',
+        'PASSWORD': 'parola_skiio_123',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -133,7 +138,10 @@ DATE_FIRMA = {
     "nume": "Skiio SRL",
     "an_infiintare": 2015,
     "telefon": "0736 123 456",
-    "adresa": "Str. Skiio, nr. 67, Brasov",
+    "adresa": "Str. Poienii, nr. 67, Brasov",
     "email": "contact@skiio.ro",
     "program": "Luni - Duminica: 09:00 - 17:00"
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
